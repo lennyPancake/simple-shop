@@ -7,6 +7,7 @@
 - Vue 3 + Vite + TypeScript + Pinia
 - Supabase: таблицы `products` и `categories`, Storage bucket `images`
 - Админ: CRUD продуктов, загрузка изображений в Supabase Storage
+![Uploading image.png…]()
 
 ## ⚙️ Быстрый старт
 
