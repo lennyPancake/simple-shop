@@ -14,7 +14,7 @@ const cartStore = useCartStore()
 onMounted(() => {
   store.loadProducts()
 
-  async function testSupabase() {
+  /* async function testSupabase() {
     // Проверим подключение: попробуем получить первые 5 продуктов
     const row: any = {
       title: 'TEST',
@@ -22,12 +22,12 @@ onMounted(() => {
       description: 'TEST2',
       image: 'TEST3',
     }
-    /* const { data, error } = await supabase
+    const { data, error } = await supabase
       .from('products')
       .update(row)
       .eq('id', 1)
       .select('*, categories(name)')
-      .single() */
+      .single()
     const { data, error } = await supabase.from('products').select('*, categories(name)')
     if (error) {
       console.error('Supabase error:', error)
@@ -35,8 +35,8 @@ onMounted(() => {
 
       return
     }
-  }
-  testSupabase()
+  } */
+  //testSupabase()
 })
 </script>
 

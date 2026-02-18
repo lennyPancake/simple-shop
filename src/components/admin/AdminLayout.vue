@@ -11,22 +11,28 @@ const sidebarOpen = ref(false)
     <!-- Mobile topbar -->
     <div class="mobile-topbar">
       <button class="menu-toggle" @click="sidebarOpen = !sidebarOpen" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
         </svg>
       </button>
-      <span class="mobile-title">SABY Admin</span>
+      <span class="mobile-title">Simple Admin</span>
     </div>
 
     <!-- Overlay for mobile -->
     <Transition name="overlay">
-      <div
-        v-if="sidebarOpen"
-        class="sidebar-overlay"
-        @click="sidebarOpen = false"
-      />
+      <div v-if="sidebarOpen" class="sidebar-overlay" @click="sidebarOpen = false" />
     </Transition>
 
     <!-- Sidebar -->
