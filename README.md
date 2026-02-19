@@ -8,6 +8,9 @@
 - Supabase: таблицы `products` и `categories`, Storage bucket `images`
 - Админ: CRUD продуктов, загрузка изображений в Supabase Storage
 
+<img width="1517" height="802" alt="image" src="https://github.com/user-attachments/assets/0e6d0027-5bc7-405c-8293-8825e001b8ce" />
+
+
 ## ⚙️ Быстрый старт
 
 Требования: Node 18+, npm
