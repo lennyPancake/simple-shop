@@ -3,14 +3,13 @@ import type { Product, ProductFormData } from '@/types'
 import { supabase } from '@/lib/supabase'
 
 const normalize = (row: any): Product => {
-  // products now reference categories via category_id — attach readable category name
   const categoryName =
     row.categories && row.categories.length ? row.categories[0].name : (row.category ?? '')
 
   return {
     id: row.id,
     title: row.title ?? '',
-    // Postgres numeric may be returned as string — приводим к number
+    //приводим к number
     price: typeof row.price === 'string' ? parseFloat(row.price) : (row.price ?? 0),
     description: row.description ?? '',
     category: row.categories?.name || '',
@@ -21,7 +20,7 @@ const normalize = (row: any): Product => {
   } as Product
 }
 
-// Получить все продукты (включая имя категории через relation)
+// Получить все продукты
 export const fetchProducts = async (): Promise<Product[]> => {
   const { data, error } = await supabase.from('products').select('*, categories(name)')
 
@@ -31,19 +30,17 @@ export const fetchProducts = async (): Promise<Product[]> => {
   return (rows as any[]).map(normalize)
 }
 
-// Получить список категорий (имена)
+// Получить список категорий
 export const fetchCategories = async (): Promise<string[]> => {
   const { data, error } = await supabase.from('categories').select('name')
 
   console.log('fetchCategories response', { data, error })
 
   if (error) {
-    // выбросим ошибку с дополнительным контекстом
     throw new Error(`Supabase error fetching categories: ${error.message}`)
   }
 
   if (!data || data.length === 0) {
-    // явный лог, полезно при отладке
     console.warn('No categories found')
     return []
   }
@@ -52,7 +49,6 @@ export const fetchCategories = async (): Promise<string[]> => {
   return Array.from(new Set(categories.filter(Boolean)))
 }
 
-// Найти или создать категорию по имени, вернуть её id
 const findOrCreateCategory = async (name?: string): Promise<number | null> => {
   if (!name) return null
   const { data: existing, error: errFind } = await supabase
@@ -74,21 +70,18 @@ const findOrCreateCategory = async (name?: string): Promise<number | null> => {
   return (inserted as any).id
 }
 
-// Загрузить файл в storage 'images' и вернуть публичный URL
 export const uploadImage = async (file: File): Promise<string> => {
   const extMatch = file.name.match(/\.([a-zA-Z0-9]+)$/)
   const ext = extMatch ? extMatch[1] : 'jpg'
   const fileName = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${ext}`
-  // поместим изображения продуктов в папку products/
   const filePath = `products/${fileName}`
+  console.log('filepath', filePath)
 
   const { error: uploadError } = await supabase.storage
     .from('images')
     .upload(filePath, file, { cacheControl: '3600', upsert: true, contentType: file.type })
 
   if (uploadError) throw uploadError
-
-  // getPublicUrl возвращает data синхронно
   const { data: urlData } = supabase.storage.from('images').getPublicUrl(filePath) as any
   return urlData.publicUrl
 }
@@ -125,7 +118,7 @@ export const createProduct = async (payload: ProductFormData): Promise<Product> 
   return normalize(data)
 }
 
-// Обновить продукт — поддерживаем обновление category (по имени) и image (url)
+// Обновить продукт
 export const updateProduct = async (id: number, payload: ProductFormData): Promise<Product> => {
   const row: any = {
     title: payload.title,
@@ -146,7 +139,6 @@ export const updateProduct = async (id: number, payload: ProductFormData): Promi
     .select('*, categories(name)')
     .single()
   if (error) throw error
-  console.log('отпавлено отправляю дату')
   return normalize(data)
 }
 

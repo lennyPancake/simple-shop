@@ -43,13 +43,13 @@ onMounted(() => {
 <template>
   <main class="home">
     <section class="home-hero">
-      <h1 class="home-title">Catalog</h1>
-      <p class="home-subtitle">Discover our curated collection of quality products</p>
+      <h1 class="home-title">Каталог</h1>
+      <p class="home-subtitle">Откройте для себя нашу отобранную коллекцию товаров</p>
     </section>
 
     <div class="home-toolbar">
       <SearchBar v-model="store.searchQuery" />
-      <span class="product-count">{{ store.filteredProducts.length }} products</span>
+      <span class="product-count">{{ store.filteredProducts.length }} продукты</span>
     </div>
 
     <CategoryFilter
@@ -76,8 +76,8 @@ onMounted(() => {
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
         <line x1="8" y1="11" x2="14" y2="11" />
       </svg>
-      <h2>Nothing found</h2>
-      <p>Try adjusting your search or filter criteria</p>
+      <h2>Ничего не найдено</h2>
+      <p>Попробуйте изменить параметры поиска или фильтра</p>
     </div>
 
     <div v-else class="products-grid">

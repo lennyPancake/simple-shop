@@ -8,7 +8,7 @@ const sidebarOpen = ref(false)
 
 <template>
   <div class="admin-layout">
-    <!-- Mobile topbar -->
+    <!-- Mobile  -->
     <div class="mobile-topbar">
       <button class="menu-toggle" @click="sidebarOpen = !sidebarOpen" aria-label="Toggle menu">
         <svg

@@ -264,10 +264,10 @@ onBeforeUnmount(() => {
             <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 6px">
               <input type="file" accept="image/*" @change="handleFileChange" />
               <small v-if="selectedFile" style="color: var(--text-tertiary)"
-                >Selected: {{ selectedFile.name }}</small
+                >Выбран: {{ selectedFile.name }}</small
               >
               <small v-if="isUploadingImage" style="color: var(--text-tertiary)"
-                >Uploading image…</small
+                >Загрузка изображения…</small
               >
               <span v-if="uploadError" class="field-error">{{ uploadError }}</span>
             </div>

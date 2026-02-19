@@ -29,7 +29,7 @@ const route = useRoute()
 
     <nav class="nav">
       <RouterLink to="/" class="nav-link" :class="{ 'nav-link--active': route.name === 'home' }">
-        Catalog
+        Каталог
       </RouterLink>
       <RouterLink
         to="/cart"
@@ -51,7 +51,7 @@ const route = useRoute()
           <circle cx="20" cy="21" r="1" />
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
         </svg>
-        <span>Cart</span>
+        <span>Корзина</span>
         <Transition name="badge">
           <span v-if="cartStore.totalCount > 0" class="badge">
             {{ cartStore.totalCount }}

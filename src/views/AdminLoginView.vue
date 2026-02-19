@@ -10,7 +10,7 @@ const pin = ref('')
 const error = ref(false)
 const isShaking = ref(false)
 
-// If already authenticated, redirect
+//redirect
 if (adminStore.isAuthenticated) {
   router.replace({ name: 'admin-dashboard' })
 }
@@ -33,15 +33,25 @@ const handleLogin = () => {
 
 <template>
   <div class="login-page">
-    <div class="login-card" :class="{ 'shake': isShaking }">
+    <div class="login-card" :class="{ shake: isShaking }">
       <div class="login-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
       </div>
       <h1 class="login-title">Admin Panel</h1>
-      <p class="login-subtitle">Enter the access code to continue</p>
+      <p class="login-subtitle">Введите пароль</p>
 
       <form @submit.prevent="handleLogin" class="login-form">
         <div class="input-wrapper">
@@ -55,22 +65,44 @@ const handleLogin = () => {
             autofocus
           />
           <Transition name="error">
-            <p v-if="error" class="error-text">Invalid access code</p>
+            <p v-if="error" class="error-text">Неверный пароль</p>
           </Transition>
         </div>
         <button type="submit" class="login-btn" :disabled="!pin.trim()">
-          <span>Sign in</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          <span>Вход</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
           </svg>
         </button>
       </form>
 
       <RouterLink to="/" class="back-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
         </svg>
-        Back to store
+        <span>Вернуться в магазин</span>
       </RouterLink>
     </div>
   </div>
@@ -205,9 +237,23 @@ const handleLogin = () => {
 
 /* Shake animation */
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-  20%, 40%, 60%, 80% { transform: translateX(4px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-4px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(4px);
+  }
 }
 
 .shake {

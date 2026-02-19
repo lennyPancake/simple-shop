@@ -99,7 +99,7 @@ const handleLogout = () => {
         >
           <path d="M15 18l-6-6 6-6" />
         </svg>
-        <span>Back to store</span>
+        <span>Вернуться в магазин</span>
       </RouterLink>
       <button class="nav-item nav-item--muted logout-btn" @click="handleLogout">
         <svg
@@ -117,7 +117,7 @@ const handleLogout = () => {
           <polyline points="16 17 21 12 16 7" />
           <line x1="21" y1="12" x2="9" y2="12" />
         </svg>
-        <span>Log out</span>
+        <span>Выйти</span>
       </button>
     </div>
   </aside>
