@@ -1,4 +1,4 @@
-# Just Shop — demo e‑commerce (Vue + Vite + Supabase)
+# Just Shop — demo e‑commerce (Vue + Vite + Supabase) (indev)
 
 Простой SPA‑каталог с админ‑панелью для управления продуктами. Проект демонстрирует интеграцию фронтенда на Vue 3 с Supabase (Postgres + Storage).
 
@@ -8,7 +8,8 @@
 - Supabase: таблицы `products` и `categories`, Storage bucket `images`
 - Админ: CRUD продуктов, загрузка изображений в Supabase Storage
 
-<img width="1517" height="802" alt="image" src="https://github.com/user-attachments/assets/0e6d0027-5bc7-405c-8293-8825e001b8ce" />
+<img width="1683" height="887" alt="image" src="https://github.com/user-attachments/assets/61aec317-6bb0-4169-9b22-af04eebf93b8" />
+
 
 
 ## ⚙️ Быстрый старт
