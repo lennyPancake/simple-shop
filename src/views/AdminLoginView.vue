@@ -50,7 +50,7 @@ const handleLogin = () => {
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
       </div>
-      <h1 class="login-title">Admin Panel</h1>
+      <h1 class="login-title">Панель Администратора</h1>
       <p class="login-subtitle">Введите пароль</p>
 
       <form @submit.prevent="handleLogin" class="login-form">
@@ -58,7 +58,7 @@ const handleLogin = () => {
           <input
             v-model="pin"
             type="password"
-            placeholder="Access code"
+            placeholder="Введите пароль"
             class="login-input"
             :class="{ 'login-input--error': error }"
             autocomplete="off"

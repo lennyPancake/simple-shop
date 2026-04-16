@@ -24,10 +24,7 @@ function handleAdd() {
 </script>
 
 <template>
-  <article
-    class="product-card fade-in"
-    :style="{ animationDelay: `${index * 50}ms` }"
-  >
+  <article class="product-card fade-in" :style="{ animationDelay: `${index * 50}ms` }">
     <div class="card-image-wrapper">
       <img :src="product.image" :alt="product.title" class="card-image" loading="lazy" />
       <span class="card-category">{{ product.category }}</span>
@@ -49,14 +46,37 @@ function handleAdd() {
           @click="handleAdd"
           :disabled="isAdded"
         >
-          <svg v-if="!isAdded" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          <svg
+            v-if="!isAdded"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
           </svg>
-          <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"/>
+          <svg
+            v-else
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
           </svg>
-          <span>{{ isAdded ? 'Added' : 'Add to cart' }}</span>
+          <span>{{ isAdded ? 'Добавлен' : 'В корзину' }}</span>
         </button>
       </div>
     </div>
@@ -71,7 +91,9 @@ function handleAdd() {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+  transition:
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
   opacity: 0;
 }
 
@@ -173,7 +195,9 @@ function handleAdd() {
   border-radius: var(--radius-sm);
   font-size: 12px;
   font-weight: 600;
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .add-btn:hover:not(:disabled) {

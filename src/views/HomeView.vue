@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useProductsStore } from '@/stores/products'
 import { useCartStore } from '@/stores/cart'
 import ProductCard from '@/components/ProductCard.vue'
@@ -38,6 +38,24 @@ onMounted(() => {
   } */
   //testSupabase()
 })
+const productWord = computed(() => {
+  const n = store.filteredProducts.length
+  const forms = ['продукт', 'продукта', 'продуктов']
+
+  const mod10 = n % 10
+  const mod100 = n % 100
+
+  if (mod100 >= 11 && mod100 <= 14) {
+    return forms[2]
+  }
+  if (mod10 === 1) {
+    return forms[0]
+  }
+  if (mod10 >= 2 && mod10 <= 4) {
+    return forms[1]
+  }
+  return forms[2]
+})
 </script>
 
 <template>
@@ -49,7 +67,7 @@ onMounted(() => {
 
     <div class="home-toolbar">
       <SearchBar v-model="store.searchQuery" />
-      <span class="product-count">{{ store.filteredProducts.length }} продукты</span>
+      <span class="product-count"> {{ store.filteredProducts.length }} {{ productWord }} </span>
     </div>
 
     <CategoryFilter

@@ -10,7 +10,7 @@ const router = useRouter()
 const store = useProductsStore()
 
 const isEdit = computed(() => !!route.params.id)
-const pageTitle = computed(() => (isEdit.value ? 'Edit Product' : 'New Product'))
+const pageTitle = computed(() => (isEdit.value ? 'Изменить продукт' : 'Новый продукт'))
 
 const form = ref<ProductFormData>({
   title: '',
@@ -186,27 +186,27 @@ onBeforeUnmount(() => {
         <div class="form-fields">
           <!-- Title -->
           <div class="field">
-            <label class="field-label" for="title">Title</label>
+            <label class="field-label" for="title">Название</label>
             <input
               id="title"
               v-model="form.title"
               type="text"
               class="field-input"
               :class="{ 'field-input--error': errors.title }"
-              placeholder="Product title"
+              placeholder="Название продукта"
             />
             <span v-if="errors.title" class="field-error">{{ errors.title }}</span>
           </div>
 
           <!-- Description -->
           <div class="field">
-            <label class="field-label" for="desc">Description</label>
+            <label class="field-label" for="desc">Описание</label>
             <textarea
               id="desc"
               v-model="form.description"
               class="field-input field-textarea"
               :class="{ 'field-input--error': errors.description }"
-              placeholder="Product description"
+              placeholder="Описание продукта"
               rows="4"
             />
             <span v-if="errors.description" class="field-error">{{ errors.description }}</span>
@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
           <!-- Price + Category row -->
           <div class="field-row">
             <div class="field">
-              <label class="field-label" for="price">Price ($)</label>
+              <label class="field-label" for="price">Цена ($)</label>
               <input
                 id="price"
                 v-model.number="form.price"
@@ -230,7 +230,7 @@ onBeforeUnmount(() => {
             </div>
 
             <div class="field">
-              <label class="field-label" for="category">Category</label>
+              <label class="field-label" for="category">Категория</label>
               <select
                 id="category"
                 v-model="form.category"
@@ -248,7 +248,7 @@ onBeforeUnmount(() => {
 
           <!-- Image URL -->
           <div class="field">
-            <label class="field-label" for="image">Image URL</label>
+            <label class="field-label" for="image">URL изображения</label>
             <input
               id="image"
               v-model="form.image"
@@ -276,7 +276,7 @@ onBeforeUnmount(() => {
 
         <!-- Right: Image preview -->
         <div class="form-preview">
-          <div class="preview-label">Preview</div>
+          <div class="preview-label">Предварительный просмотр</div>
           <div class="preview-card">
             <div v-if="form.image && !imagePreviewError" class="preview-image-wrapper">
               <img

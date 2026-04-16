@@ -55,7 +55,7 @@ const recentProducts = computed(() => store.products.slice(0, 5))
 
     <!-- Stats -->
     <div class="stats-grid" v-if="!store.isLoading">
-      <StatCard :value="totalProducts" label="Total Products">
+      <StatCard :value="totalProducts" label="Всего продуктов">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const recentProducts = computed(() => store.products.slice(0, 5))
           </svg>
         </template>
       </StatCard>
-      <StatCard :value="totalCategories" label="Categories">
+      <StatCard :value="totalCategories" label="Всего категорий">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ const recentProducts = computed(() => store.products.slice(0, 5))
           </svg>
         </template>
       </StatCard>
-      <StatCard :value="'$' + avgPrice" label="Avg Price">
+      <StatCard :value="'$' + avgPrice" label="Средняя цена">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +114,7 @@ const recentProducts = computed(() => store.products.slice(0, 5))
           </svg>
         </template>
       </StatCard>
-      <StatCard :value="avgRating" label="Avg Rating">
+      <StatCard :value="avgRating" label="Средний рейтинг">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
